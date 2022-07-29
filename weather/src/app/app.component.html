@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="upper-data">
+    <img src="../assets/summer.jpg" *ngIf="14> 15">
+    <img src="../assets/winter1.jpg" *ngIf="14<= 15">
+    <div class="weather-data">
+      <div class="location">Wellington</div>
+      <div class="temperature">{{14.40 |number: '1.0-0'}}°C</div>
+    </div>
+  </div>
+  <div class="lower-data">
+    <div class="more-info-label">
+      More Information
+    </div>
+    <div class="more-info-container">
+      <div class="info-block">
+        <div class="info-block-label">
+          <img src="../assets/low-temp.png">
+          <span>Min</span>
+        </div>
+        <div class="info-block-value">
+          10°C
+        </div>
+      </div>
+
+      <div class="info-block">
+        <div class="info-block-label">
+          <img src="../assets/high-temp.png">
+          <span>Max</span>
+        </div>
+        <div class="info-block-value">
+          20°C
+        </div>
+      </div>
+
+      <div class="info-block">
+        <div class="info-block-label">
+          <img src="../assets/humidity.png">
+          <span>Humidity</span>
+        </div>
+        <div class="info-block-value">
+          77%
+        </div>
+      </div>
+
+      <div class="info-block">
+        <div class="info-block-label">
+          <img src="../assets/wind.png">
+          <span>Wind</span>
+        </div>
+        <div class="info-block-value">
+          11 km/hr
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>
