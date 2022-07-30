@@ -1,10 +1,16 @@
-<div class="container">
+<div class="search">
+  <form #form="ngForm" (submit)="onSubmit()">
+      <input type="text" placeholder="Search city" name="city" [(ngModel)]="cityName">
+  </form>
+</div>
+
+<div class="container" *ngIf="weatherData">
   <div class="upper-data">
-    <img src="../assets/summer.jpg" *ngIf="14> 15">
-    <img src="../assets/winter1.jpg" *ngIf="14<= 15">
+    <img src="../assets/summer.jpg" *ngIf="weatherData.main.temp> 14">
+    <img src="../assets/winter1.jpg" *ngIf="weatherData.main.temp<= 15">
     <div class="weather-data">
-      <div class="location">Wellington</div>
-      <div class="temperature">{{14.40 |number: '1.0-0'}}°C</div>
+      <div class="location">{{weatherData.name}}</div>
+      <div class="temperature">{{weatherData.main.temp |number: '1.0-0'}}°F</div>
     </div>
   </div>
   <div class="lower-data">
@@ -18,7 +24,7 @@
           <span>Min</span>
         </div>
         <div class="info-block-value">
-          10°C
+          {{(weatherData.main.temp_min-32)*5/9|number: '1.0-0'}}°C
         </div>
       </div>
 
@@ -28,7 +34,7 @@
           <span>Max</span>
         </div>
         <div class="info-block-value">
-          20°C
+          {{weatherData.main.temp_max|number: '1.0-0'}}°F
         </div>
       </div>
 
@@ -38,7 +44,7 @@
           <span>Humidity</span>
         </div>
         <div class="info-block-value">
-          77%
+          {{weatherData.main.humidity}}%
         </div>
       </div>
 
@@ -48,7 +54,7 @@
           <span>Wind</span>
         </div>
         <div class="info-block-value">
-          11 km/hr
+          {{weatherData.wind.speed}} km/hr
         </div>
       </div>
     </div>
